@@ -1,0 +1,27 @@
+.employee-container {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+ 
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+ 
+.employee-table th,
+.employee-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+ 
+.employee-table th {
+  background-color: #f4f4f4;
+}
+ 
+.error {
+  color: red;
+  margin-top: 10px;
+}

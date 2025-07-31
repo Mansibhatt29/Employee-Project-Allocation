@@ -1,0 +1,28 @@
+<div class="employee-container">
+  <h2>Employees Without Project</h2>
+ 
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+ 
+  <table class="employee-table" *ngIf="employees.length > 0">
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Name</th>
+        <th>Designation</th>
+        <th>Availability</th>
+        <th>Skillset</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees">
+        <td>{{ emp.empId }}</td>
+        <td>{{ emp.empName }}</td>
+        <td>{{ emp.designation }}</td>
+        <td>{{ emp.availability ? 'Available' : 'Not Available' }}</td>
+        <td>{{ emp.skillSet }}</td>
+      </tr>
+    </tbody>
+  </table>
+ 
+  <p *ngIf="employees.length === 0 && !errorMessage">No employees found without project.</p>
+</div>

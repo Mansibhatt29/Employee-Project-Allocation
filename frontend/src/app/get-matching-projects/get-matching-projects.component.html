@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Get Matching Projects</h2>
+ 
+  <div class="form-group">
+    <label for="empId">Employee ID:  </label>
+    <input type="number" id="empId" [(ngModel)]="empId" />
+    <button (click)="fetchMatchingProjects()">Get Matches</button>
+  </div>
+ 
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+ 
+  <table *ngIf="matchedProjects.length > 0" class="project-table">
+    <thead>
+      <tr>
+        <th>Project ID</th>
+        <th>Project Name</th>
+        <th>Description</th>
+        <th>Skills Required</th>
+        <th>Capacity</th>
+        <th>Match %</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of matchedProjects">
+        <td>{{ project.projectId }}</td>
+        <td>{{ project.projectName }}</td>
+        <td>{{ project.descript }}</td>
+        <td>{{ project.requiredSkills }}</td>
+        <td>{{ project.capacity }}</td>
+        <td>{{ project.matchPercentage.toFixed(2) }}%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p *ngIf="successMessage" class="success-Message"> {{successMessage}}</p>
+<!-- <p *ngIf="errorMessage" class="error-Message"> {{errorMessage}}</p> -->
+
+

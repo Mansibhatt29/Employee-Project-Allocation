@@ -1,0 +1,78 @@
+/* .dashboard-container {
+  text-align: center;
+  margin-top: 50px;
+}
+ 
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+ 
+button:hover {
+  background-color: #45a049;
+} */
+
+:host {
+  display: block;
+  background-color: #b0c4de           ;
+  min-height: 100vh;
+  padding: 20px;
+}
+ 
+.dashboard-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 40px;
+  text-align: center;
+  background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+ 
+.dashboard-container h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 30px;
+}
+ 
+button {
+  display: block;
+  width: 80%;
+  margin: 12px auto;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  background-color: #4682B4; /* Slate Blue */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+ 
+button:hover {
+  background-color: #5a4db2;
+  transform: scale(1.03);
+}
+ 
+button:active {
+  transform: scale(0.98);
+}
+ 
+@media (max-width: 600px) {
+  .dashboard-container {
+    padding: 20px;
+  }
+ 
+  button {
+    width: 100%;
+    font-size: 15px;
+  }
+}
