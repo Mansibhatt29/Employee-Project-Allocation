@@ -1,0 +1,35 @@
+.container {
+  padding: 24px;
+}
+ 
+h2 {
+  text-align: center;
+  color: #2e7d32;
+}
+ 
+.error {
+  color: red;
+  text-align: center;
+}
+ 
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+ 
+.custom-table th,
+.custom-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+ 
+.custom-table th {
+  background-color: #4caf50;
+  color: white;
+}
+ 
+.custom-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

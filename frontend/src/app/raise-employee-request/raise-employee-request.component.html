@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>Raise Role Request</h2>
+ 
+  <div class="designation-row" *ngFor="let designation of designations">
+    <div class="designation-text">
+      {{ designation }}
+    </div>
+    <button
+      class="raise-button"
+      (click)="selectedDesignation = designation; raiseRequest()"
+    >
+      Raise Request
+    </button>
+  </div>
+</div>

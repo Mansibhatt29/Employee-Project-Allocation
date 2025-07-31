@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Available Employees</h2>
+ 
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+ 
+  <table *ngIf="employees.length > 0" class="employee-table">
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Designation</th>
+        <th>Availability</th>
+        <th>Project ID</th>
+        <th>Skill Set</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees">
+        <td>{{ emp.empId }}</td>
+        <td>{{ emp.empName }}</td>
+        <td>{{ emp.designation }}</td>
+        <td>{{ emp.availability ? 'Available' : 'Not Available' }}</td>
+        <td>{{ emp.projectEntity?.projectId || 'N/A' }}</td>
+        <td>{{ emp.skillSet }}</td>
+      </tr>
+    </tbody>
+  </table>
+ 
+  <p *ngIf="employees.length === 0 && !errorMessage">No available employees found.</p>
+</div>

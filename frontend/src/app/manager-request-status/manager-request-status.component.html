@@ -1,0 +1,71 @@
+<!-- <div class="container">
+  <h2 *ngIf="!isLoading && roleRequests.length">My Requests</h2>
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  <p *ngIf="!isLoading && roleRequests.length === 0">No requests found.</p>
+ 
+  <table *ngIf="!isLoading && roleRequests.length" class="custom-table">
+    <thead>
+      <tr>
+        <th>Request ID</th>
+        <th>Status</th>
+        <th>Assigned Employee</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let req of roleRequests">
+        <td>{{ req.id }}</td>
+        <td>{{ req.status }}</td>
+        <td>{{ req.assignedEmployeeName || 'Not Assigned' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>  -->
+
+<div class="container">
+ 
+  <h2 *ngIf="!isLoading && roleRequests.length">My Requests</h2>
+ 
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+ 
+  <p *ngIf="!isLoading && roleRequests.length === 0">No requests found.</p>
+ 
+  <table *ngIf="!isLoading && roleRequests.length" class="custom-table">
+    <thead>
+      <tr>
+        <th>Request ID</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>Assigned Employee</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let req of roleRequests">
+        <tr>
+        <td>{{ req.id }}</td>
+        <td>{{ req.designation }}</td>
+          <td>{{ req.status }}</td>
+          <td>
+            {{ req.selectedEmployeeName || 'Not Assigned' }}
+            <button (click)="toggleAssigned(req)" style="margin-left: 10px;">
+              {{ req.showAssigned ? 'Hide' : 'View' }}
+            </button>
+          </td>
+        </tr>
+ 
+        <!-- Toggle Row: inside same *ngFor using <ng-container> -->
+        <tr *ngIf="req.showAssigned">
+          <td colspan="3">
+            <div *ngIf="req.selectedEmployeeId; else noEmp">
+              <b>Employee ID:</b> {{ req.selectedEmployeeId }}<br />
+              <b>Employee Name:</b> {{ req.selectedEmployeeName }}
+            </div>
+            <ng-template #noEmp>
+              No employee assigned yet.
+            </ng-template>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+ 
+</div>

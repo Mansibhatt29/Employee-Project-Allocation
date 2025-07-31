@@ -1,0 +1,30 @@
+<div class="container">
+  <h2 class="title">Update Your Skill Set</h2>
+  <form (ngSubmit)="updateSkills()">
+    <div class="checkbox-grid">
+      <label *ngFor="let skill of allSkills" class="checkbox-item">
+        <input
+          type="checkbox"
+          [value]="skill"
+          [checked]="selectedSkills.includes(skill)"
+          (change)="onCheckboxChange(skill, $event)"
+        />
+        {{ skill }}
+      </label>
+    </div>
+    <div class="custom_skill_input" stule="margin-top: 10px;">
+      <label for="customSkill">Add Skill  </label>
+      <input
+      type="text"
+      id="'customSkill"
+      name="customSkill"
+      [(ngModel)]="customSkill"
+      placeholder="  Enter Skill here"
+      />
+    </div>
+    <button type="submit" class="update-btn">Update Skills</button>
+  </form>
+  <p *ngIf="updateMessage" [ngStyle]="{ color: updateMessage.includes('successfully') ? 'green' : 'red'}"> 
+    {{updateMessage}}
+  </p>
+</div>

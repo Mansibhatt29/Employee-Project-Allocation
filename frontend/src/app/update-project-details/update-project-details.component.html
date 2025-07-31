@@ -1,0 +1,46 @@
+<div class="form-container">
+  <h2>Update Project Details</h2>
+ 
+  <label>Project Name:</label>
+  <input type="text" [(ngModel)]="projectName"><br><br>
+ 
+  <label>Description:</label>
+  <textarea [(ngModel)]="descript"></textarea><br><br>
+ 
+  <label>Capacity:</label>
+  <input type="number" [(ngModel)]="capacity"><br><br>
+
+
+  <div class="form-group">
+  <label><strong>Required Skills:</strong></label>
+  <div class="skills-container">
+    <div *ngFor="let skill of availableSkills" class="skill-checkbox">
+      <input
+        type="checkbox"
+        [value]="skill"
+        [checked]="selectedSkills.includes(skill)"
+        (change)="onSkillChange( skill, $event)"
+        id="{{ skill }}"
+      />
+      <label for="{{ skill }}">{{ skill }}</label>
+    </div>
+        <div class="custom_skill_input" stule="margin-top: 10px;">
+      <label for="customSkill">Add Skill  </label>
+      <input
+      type="text"
+      id="'customSkill"
+      name="customSkill"
+      [(ngModel)]="customSkill"
+      placeholder="  Enter Skill here"
+      />
+    </div>
+
+  </div>
+</div>
+ 
+  <button (click)="updateProject()">Update Project</button>
+ 
+  <div class="success" *ngIf="successMessage">{{ successMessage }}</div>
+  <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+</div>
+ 

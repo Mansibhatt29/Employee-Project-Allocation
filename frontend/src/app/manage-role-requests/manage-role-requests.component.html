@@ -1,0 +1,41 @@
+
+<div class="container">
+  <h2>Manage Role Requests</h2>
+ 
+  <div *ngIf="loading" class="info">Loading pending requests...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+ 
+  <table *ngIf="!loading && pendingRequests.length > 0" class="requests-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Designation</th>
+        <th>Status</th>
+        <th>Manager ID</th>
+        <th>Manager Name</th>
+        <th>Project ID</th>
+        <th>Project Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of pendingRequests">
+        <td>{{ request.id }}</td>
+        <td>{{ request.designation }}</td>
+        <td>{{ request.status }}</td>
+        <td>{{ request.managerEmpId }}</td>
+        <td>{{ request.managerName }}</td>
+        <td>{{ request.projectId }}</td>
+        <td>{{ request.projectName }}</td>
+        <td>
+            <button [routerLink]="['/view-matching-employees', request.id]"
+            class="btn-link">Search Employees</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+ 
+  <div *ngIf="!loading && pendingRequests.length === 0" class="info">
+    No pending requests found.
+  </div>
+</div>

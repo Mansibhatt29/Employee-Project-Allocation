@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Projects Without Employees</h2>
+ 
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+ 
+  <table class="project-table" *ngIf="projects.length > 0">
+    <thead>
+      <tr>
+        <th>Project ID</th>
+        <th>Project Name</th>
+        <th>Description</th>
+        <th>Required Skills</th>
+        <th>Capacity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projects">
+        <td>{{ project.projectId }}</td>
+        <td>{{ project.projectName }}</td>
+        <td>{{ project.descript }}</td>
+        <td>{{ project.requiredSkills }}</td>
+        <td>{{ project.capacity }}</td>
+      </tr>
+    </tbody>
+  </table>
+ 
+  <p *ngIf="projects.length === 0 && !errorMessage">No such projects found.</p>
+</div>

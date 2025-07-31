@@ -1,0 +1,36 @@
+.container {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 800px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+ 
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+ 
+.project-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+ 
+.project-table th,
+.project-table td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: left;
+}
+ 
+.project-table th {
+  background-color: #e0e0e0;
+}
+ 
+.error {
+  color: red;
+  text-align: center;
+}
