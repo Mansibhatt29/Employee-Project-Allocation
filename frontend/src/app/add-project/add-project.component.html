@@ -1,0 +1,40 @@
+<div class="form-container">
+  <h2>Add New Project</h2>
+ 
+  <!-- Success and Error Messages -->
+  <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+ 
+  <!-- Project Form -->
+  <form (ngSubmit)="addProject()">
+    <div class="form-group">
+      <label for="projectName">Project Name:</label>
+      <input type="text" id="projectName" [(ngModel)]="project.projectName" name="projectName" required>
+    </div>
+ 
+    <div class="form-group">
+      <label for="descript">Description:</label>
+      <textarea id="descript" [(ngModel)]="project.descript" name="descript" required></textarea>
+    </div>
+ 
+    <div class="form-group">
+      <label for="capacity">Capacity:</label>
+      <input type="number" id="capacity" [(ngModel)]="project.capacity" name="capacity" required>
+    </div>
+ 
+    <div class="form-group">
+      <label>Required Skills:</label>
+      <div class="checkbox-group">
+        <div *ngFor="let skill of availableSkills">
+          <input type="checkbox"
+                 [value]="skill"
+                 (change)="onSkillChange(skill, $event)"
+                 [checked]="selectedSkills.includes(skill)">
+          {{ skill }}
+        </div>
+      </div>
+    </div>
+ 
+    <button type="submit">Add Project</button>
+  </form>
+</div>

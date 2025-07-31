@@ -1,0 +1,48 @@
+<!-- <h1>Admin Dashboard</h1>
+ 
+<div class="dashboard-container">
+  <button routerLink="/add-employee">Add Employee</button>
+  <button routerLink="/view-employees">View Employees</button>
+  <button routerLink="/add-project">Add Project</button>
+  <button routerLink="/view-projects">View Projects</button>
+  <button routerLink="/projects-without-employees">View Projects Without Employees</button>
+  <button routerLink="/employees-without-projects">View Employees Without Project</button>
+  <button routerLink="/understaffed-projects">View Understaffed Projects</button>
+  <button routerLink="/view-available-employees"> View Available Employees</button>
+  <button routerLink="/search-employees-by-designation">Search By Designation</button>
+</div> -->
+
+
+<h2>Welcome to Admin Dashboard , {{empName}} !!</h2>
+ 
+<div class="dashboard-container">
+ 
+  <div *ngIf="pendingCount > 0"
+    class="notification-banner">
+    You have {{pendingCount }} pending role request{{pendingCount > 1 ? 's' : ''}}.
+    <button class="go-btn" (click)="goToRequests()"> View Requests </button>
+  </div>
+  <div class="card">
+    <h3>Employee Functions</h3>
+    <button routerLink="/add-employee">Add Employee</button>
+    <button routerLink="/view-employees">View Employees</button>
+    <!-- <button routerLink="/employees-without-projects">View Employees Without Project</button> -->
+    <button routerLink="/view-available-employees">View Available Employees</button>
+    <button routerLink="/search-employees-by-designation">Search By Designation</button>
+    <button routerLink="/get-matching-projects">Find Matching Projects</button>
+  </div>
+ 
+  <div class="card">
+    <h3>Project Functions</h3>
+    <button routerLink="/add-project">Add Project</button>
+    <button routerLink="/view-projects">View Projects</button>
+    <button routerLink="/projects-without-employees">View Projects Without Employees</button>
+    <button routerLink="/understaffed-projects">View Understaffed Projects</button>
+    <button routerLink="/manage-role-requests">View Role Requests</button>
+  </div>
+
+  <div class="card">
+    <button (click)="logout()">Logout</button>
+  </div>
+ 
+</div>

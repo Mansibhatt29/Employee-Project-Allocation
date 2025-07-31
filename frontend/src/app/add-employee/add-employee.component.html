@@ -1,0 +1,54 @@
+<h2>Add New Employee</h2>
+ 
+<form (ngSubmit)="addEmployee()">
+ 
+  <label>Name:</label>
+  <input type="text" [(ngModel)]="employee.empName" name="name" required><br><br>
+
+  <label>Email:</label>
+  <input type="email" id ="email" [(ngModel)]="employee.email" name ='email' required>
+ 
+  <label>Designation:</label>
+  <input type="text" [(ngModel)]="employee.designation" name="designation" required><br><br>
+
+  <label>Role:</label>
+  <select [(ngModel)]="employee.role" name="role" required>
+  <option value="">-- Select Role --</option>
+  <option value="admin">Admin</option>
+  <option value="manager">Manager</option>
+  <option value="employee">Employee</option>
+  </select><br><br>
+
+
+  <label>Is Available:</label>
+  <select [(ngModel)]="employee.availability" name="isAvailable">
+    <option [value]="true">Yes</option>
+    <option [value]="false">No</option>
+  </select><br><br>
+ 
+  <label>Project ID:</label>
+  <select [(ngModel)]="employee.projectEntity.projectId" name="projectId" required>
+    <option value="">-- Select Project ID --</option>
+    <option [ngValue]="null">Not Assigned</option>
+    <option *ngFor="let pid of projectIds" [value]="pid">{{ pid }}</option>
+  </select><br><br>
+ 
+  <label>Skillset:</label><br>
+  <div *ngFor="let skill of skills">
+    <input type="checkbox" [value]="skill" (change)="toggleSkill(skill, $event)"> {{ skill }}
+  </div> <br>   <div class="custom_skill_input" stule="margin-top: 10px;">
+      <label for="customSkill">Add Skill  </label>
+      <input
+      type="text"
+      id="'customSkill"
+      name="customSkill"
+      [(ngModel)]="customSkill"
+      placeholder="  Enter Skill here"
+      />
+    </div><br>
+ 
+  <button type="submit">Add Employee</button>
+</form>
+ 
+<p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+<p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
